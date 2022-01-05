@@ -24,7 +24,13 @@ class RedisService {
     /* eslint-enable */
   }
 
-  setItem(key, content, format = 'plain') {
+  setItem(
+    key,
+    content,
+    format = 'plain',
+    expiryMode = null,
+    time = null,
+  ) {
     let value;
     /* eslint-disable */
     switch (format) {
@@ -39,7 +45,12 @@ class RedisService {
     }
     /* eslint-enable */
 
-    return this.instance.set(key, value);
+    return this.instance.set(
+      key,
+      value,
+      expiryMode,
+      time,
+    );
   }
 
   removeItem(key) {
