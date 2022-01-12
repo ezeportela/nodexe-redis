@@ -10,8 +10,21 @@ const getItem = async (instance, key, format = 'json') => {
   return item;
 };
 
-const setItem = (instance, key, item, format = 'json') =>
-  instance.setItem(key, item, format);
+const setItem = (
+  instance,
+  key,
+  item,
+  format = 'json',
+  expiryMode = null,
+  time = null,
+) =>
+  instance.setItem(
+    key,
+    item,
+    format,
+    expiryMode,
+    time,
+  );
 
 const unsetItem = (instance, key) => instance.removeItem(key);
 
